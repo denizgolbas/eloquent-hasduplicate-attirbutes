@@ -44,6 +44,7 @@ trait HasDuplicateAttributes
     {
         if (!$this->shouldCopyRelatedAttributes)
         {
+            // Reset flag after skipping copy operation
             $this->shouldCopyRelatedAttributes = true;
 
             return;
@@ -76,37 +77,26 @@ trait HasDuplicateAttributes
         {
             $model = null;
 
-            // First check if the relation is already loaded
+            // Always reload relation to get fresh data, especially on updates
+            // Unset the relation to force reload
             if ($this->relationLoaded($method))
             {
-                $relation = $this->getRelation($method);
-
-                // If relation is a Model, use it directly
-                if ($relation instanceof Model)
-                {
-                    $model = $relation;
-                }
-                // If relation is a Collection, get first item
-                elseif ($relation instanceof Collection)
-                {
-                    $model = $relation->first();
-                }
+                unset($this->relations[$method]);
             }
-            else
-            {
-                // Load the relation
-                $this->load($method);
-                $relation = $this->getRelation($method);
 
-                // Same check for loaded relation
-                if ($relation instanceof Model)
-                {
-                    $model = $relation;
-                }
-                elseif ($relation instanceof Collection)
-                {
-                    $model = $relation->first();
-                }
+            // Load the relation (fresh data)
+            $this->load($method);
+            $relation = $this->getRelation($method);
+
+            // If relation is a Model, use it directly
+            if ($relation instanceof Model)
+            {
+                $model = $relation;
+            }
+            // If relation is a Collection, get first item
+            elseif ($relation instanceof Collection)
+            {
+                $model = $relation->first();
             }
 
             if ($model)
@@ -125,6 +115,9 @@ trait HasDuplicateAttributes
                 }
             }
         }
+
+        // Reset flag after performing copy operation
+        $this->shouldCopyRelatedAttributes = true;
     }
 
     public function withoutCopyingRelatedAttributes(): self
