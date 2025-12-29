@@ -1,0 +1,40 @@
+{
+    "name": "denizgolbas/eloquent-hasduplicate-attirbutes",
+    "description": "Laravel Eloquent trait for duplicating attributes from related models",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Deniz Golbas",
+            "email": "denizgolbas@example.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "illuminate/database": "^9.0|^10.0|^11.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^7.0|^8.0|^9.0",
+        "phpunit/phpunit": "^9.5|^10.0|^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Denizgolbas\\EloquentHasduplicateAttirbutes\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Denizgolbas\\EloquentHasduplicateAttirbutes\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Denizgolbas\\EloquentHasduplicateAttirbutes\\EloquentHasduplicateAttirbutesServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
+
