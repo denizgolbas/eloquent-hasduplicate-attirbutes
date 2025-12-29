@@ -1,9 +1,9 @@
 # Eloquent HasDuplicateAttributes
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/denizgolbas/eloquent-hasduplicate-attirbutes.svg?style=flat-square)](https://packagist.org/packages/denizgolbas/eloquent-hasduplicate-attirbutes)
-[![Total Downloads](https://img.shields.io/packagist/dt/denizgolbas/eloquent-hasduplicate-attirbutes.svg?style=flat-square)](https://packagist.org/packages/denizgolbas/eloquent-hasduplicate-attirbutes)
-[![Tests](https://github.com/denizgolbas/eloquent-hasduplicate-attirbutes/actions/workflows/tests.yml/badge.svg)](https://github.com/denizgolbas/eloquent-hasduplicate-attirbutes/actions/workflows/tests.yml)
-[![License](https://img.shields.io/packagist/l/denizgolbas/eloquent-hasduplicate-attirbutes.svg?style=flat-square)](https://packagist.org/packages/denizgolbas/eloquent-hasduplicate-attirbutes)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/denizgolbas/eloquent-hasduplicate-attirbutes.svg?style=flat-square&label=Packagist)](https://packagist.org/packages/denizgolbas/eloquent-hasduplicate-attirbutes)
+[![Total Downloads](https://img.shields.io/packagist/dt/denizgolbas/eloquent-hasduplicate-attirbutes.svg?style=flat-square&label=Downloads)](https://packagist.org/packages/denizgolbas/eloquent-hasduplicate-attirbutes)
+[![Tests](https://github.com/denizgolbas/eloquent-hasduplicate-attirbutes/actions/workflows/tests.yml/badge.svg?branch=master)](https://github.com/denizgolbas/eloquent-hasduplicate-attirbutes/actions/workflows/tests.yml)
+[![License](https://img.shields.io/packagist/l/denizgolbas/eloquent-hasduplicate-attirbutes.svg?style=flat-square&label=License)](https://packagist.org/packages/denizgolbas/eloquent-hasduplicate-attirbutes)
 
 A powerful Laravel Eloquent trait that automatically duplicates attributes from related models when creating or updating records. This package simplifies the process of copying data from parent or related models to child models, with flexible override options.
 
