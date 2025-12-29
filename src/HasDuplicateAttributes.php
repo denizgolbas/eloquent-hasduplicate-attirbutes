@@ -38,15 +38,17 @@ trait HasDuplicateAttributes
         static::creating(fn (self $model) => $model->performCopyRelatedAttributes());
         static::updating(fn (self $model) => $model->performCopyRelatedAttributes());
         static::saving(fn (self $model) => $model->performCopyRelatedAttributes());
+        
+        // Reset flag after save operation completes
+        static::saved(fn (self $model) => $model->shouldCopyRelatedAttributes = true);
     }
 
     protected function performCopyRelatedAttributes(): void
     {
         if (!$this->shouldCopyRelatedAttributes)
         {
-            // Reset flag after skipping copy operation
-            $this->shouldCopyRelatedAttributes = true;
-
+            // Don't reset flag here - keep it false for the entire save cycle
+            // It will be reset after the save operation completes
             return;
         }
 
